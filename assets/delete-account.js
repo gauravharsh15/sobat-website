@@ -10,6 +10,7 @@
   const $ = (id) => document.getElementById(id);
 
   let accessToken = null;
+  let userId = null;
   let pendingPhone = null;
 
   function showStep(step) {
@@ -59,6 +60,7 @@
   async function showSignedIn() {
     try {
       const user = await call("/auth/v1/user", { method: "GET", token: accessToken });
+      userId = user.id;
       const label = user.phone ? maskPhone(user.phone) : maskEmail(user.email);
       $("identity").textContent = label || "your Sobat account";
       $("confirm-text").value = "";
@@ -158,8 +160,14 @@
     $("cancel-btn").disabled = true;
     setStatus("confirm-status", "Deleting your account…");
     try {
+      // The profile photo lives in Storage, which the database function can't
+      // reach, so remove it first. No photo is fine; carry on either way.
+      if (userId) {
+        await call("/storage/v1/object/avatars", { method: "DELETE", body: { prefixes: [userId + "/avatar.jpg"] }, token: accessToken }).catch(() => {});
+      }
       await call("/rest/v1/rpc/delete_own_account", { body: {}, token: accessToken });
       accessToken = null;
+      userId = null;
       pendingPhone = null;
       showStep("step-done");
     } catch (err) {
