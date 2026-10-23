@@ -38,11 +38,18 @@
     return data;
   }
 
-  // Same rule as the app's login screen: numbers without a country code are Indian (+91).
+  // Same rule as normalizePhone in the app (lib/types.ts): numbers without a
+  // country code are Indian (+91), and a 12-digit number starting 91 already
+  // has it. Returns null if it can't be a phone number.
   function normalizePhone(raw) {
-    const cleaned = String(raw).replace(/[^\d+]/g, "");
-    if (cleaned.startsWith("+")) return cleaned;
-    return "+91" + cleaned.replace(/^0+/, "");
+    let n = String(raw).replace(/[^\d+]/g, "");
+    if (n.startsWith("00")) n = "+" + n.slice(2);
+    if (!n.startsWith("+")) {
+      n = n.replace(/^0+/, "");
+      n = n.length === 12 && n.startsWith("91") ? "+" + n : "+91" + n;
+    }
+    if (n.startsWith("+91")) return /^\+91[6-9]\d{9}$/.test(n) ? n : null;
+    return /^\+\d{8,15}$/.test(n) ? n : null;
   }
 
   function maskPhone(p) {
@@ -78,7 +85,7 @@
   $("phone-form").addEventListener("submit", async (e) => {
     e.preventDefault();
     const phone = normalizePhone($("phone").value);
-    if (!/^\+\d{10,15}$/.test(phone)) {
+    if (!phone) {
       setStatus("signin-status", "Enter the phone number on your Sobat account.", "error");
       $("phone").focus();
       return;
