@@ -22,6 +22,7 @@
         Sobat
       </a>
       <nav class="site-nav" aria-label="Main">
+        <a href="#why">Why share</a>
         <a href="#how">How it works</a>
         <a href="#safety">Safety</a>
         <a href="#updates">Get updates</a>
@@ -43,35 +44,97 @@
           <p class="name-note"><span lang="mr">सोबत</span> (sobat) means going along together.</p>
         </div>
 
+        <!-- The resting state (3 riders) is what shows without JavaScript or with
+             reduced motion; assets/animations.js replays riders joining. -->
         <figure class="ride-card" aria-label="Example of a shared ride on Sobat">
           <span class="tag">Example ride</span>
           <div class="route">
             <span class="dot" aria-hidden="true"></span>
-            <div><div class="place">City Metro station</div><div class="when">Meet at Exit B · leaves 6:45 pm</div></div>
+            <div><div class="place">City Metro station</div><div class="when">Meet at Exit B · leaves in <span id="leaves-in" class="tabular">6 min</span></div></div>
             <span class="line" aria-hidden="true"></span><span></span>
             <span class="dot end" aria-hidden="true"></span>
             <div><div class="place">Tech Park, Gate 2</div><div class="when">Drops within a short walk of each rider</div></div>
           </div>
           <div class="riders">
             <div>
-              <div class="seats" aria-label="3 of 4 seats taken">
+              <div class="seats" aria-hidden="true">
                 <span class="seat"></span><span class="seat"></span><span class="seat"></span><span class="seat open"></span>
               </div>
-              <div class="muted">3 verified riders · 1 seat left</div>
+              <div class="muted" id="riders-text">3 verified riders · 1 seat left</div>
             </div>
-            <div class="split">₹700 ÷ 3<small>one cab, split three ways</small></div>
+            <div class="split">₹700 <span id="split-n">÷ 3</span><small id="split-each">about ₹233 each</small></div>
           </div>
         </figure>
       </div>
     </section>
 
+    <section class="section" id="why">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Why your commute feels stuck</p>
+          <h2>Too many cars, too few people in them</h2>
+        </div>
+        <div class="facts reveal">
+          <div class="fact">
+            <span class="num"><span data-count="168">168</span> hrs</span>
+            <p>lost to traffic by the average Bengaluru commuter in 2025. That's a full week.</p>
+            <a class="src" href="https://www.downtoearth.org.in/urbanisation/bengaluru-kolkata-among-worlds-slowest-cities-as-india-ranks-high-on-congestion-index" rel="noopener" target="_blank">TomTom Traffic Index 2025</a>
+          </div>
+          <div class="fact">
+            <span class="num"><span data-count="2">2</span> of 5</span>
+            <p>of the world's most congested cities in 2025 are in India.</p>
+            <a class="src" href="https://www.downtoearth.org.in/urbanisation/bengaluru-kolkata-among-worlds-slowest-cities-as-india-ranks-high-on-congestion-index" rel="noopener" target="_blank">TomTom Traffic Index 2025</a>
+          </div>
+          <div class="fact">
+            <span class="num">$<span data-count="22">22</span> bn</span>
+            <p>a year: what congestion costs Delhi, Mumbai, Bengaluru and Kolkata in lost time, fuel and health.</p>
+            <a class="src" href="https://www.freepressjournal.in/business/india-loses-usd-22-bn-a-year-in-peak-traffic-hours-report" rel="noopener" target="_blank">Boston Consulting Group, 2018</a>
+          </div>
+          <div class="fact">
+            <span class="num"><span data-count="90">90</span>%</span>
+            <p>of India's transport CO₂ comes from road vehicles. Transport is 14% of the country's energy-related emissions.</p>
+            <a class="src" href="https://vajiramandravi.com/current-affairs/co2-emissions-from-transport-sector-could-be-slashed-up-to-71-by-2050-study/" rel="noopener" target="_blank">WRI India, 2020 data</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="converge reveal">
+          <div class="converge-copy">
+            <p class="eyebrow">The fix is in the empty seats</p>
+            <h2>One cab instead of three</h2>
+            <p class="muted">A cab carrying one rider has three empty seats. When three people going the same way fill them, the same trip needs one cab instead of three: about a third of the fare each, and roughly a third of the emissions per person.</p>
+          </div>
+          <svg class="converge-art" viewBox="0 0 360 200" role="img" aria-label="Three separate cab routes merging into one shared cab">
+            <text class="art-label" x="12" y="18">3 solo cabs</text>
+            <path class="lane lane-1" pathLength="1" d="M36 48 C 120 48, 150 104, 222 104"/>
+            <path class="lane lane-2" pathLength="1" d="M36 104 L 222 104"/>
+            <path class="lane lane-3" pathLength="1" d="M36 160 C 120 160, 150 104, 222 104"/>
+            <circle class="solo" cx="24" cy="48" r="9"/>
+            <circle class="solo" cx="24" cy="104" r="9"/>
+            <circle class="solo" cx="24" cy="160" r="9"/>
+            <path class="merged" pathLength="1" d="M222 104 L 318 104"/>
+            <g class="shared">
+              <circle cx="334" cy="104" r="16"/>
+              <circle class="person" cx="327" cy="104" r="2.6"/>
+              <circle class="person" cx="334" cy="104" r="2.6"/>
+              <circle class="person" cx="341" cy="104" r="2.6"/>
+            </g>
+            <text class="art-label strong" x="350" y="70" text-anchor="end">1 shared cab</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="how">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <p class="eyebrow">How it works</p>
           <h2>Four steps from solo cab to shared ride</h2>
         </div>
-        <ol class="steps">
+        <ol class="steps reveal">
           <li><h3>Post your trip</h3><p>Set your pickup, your drop, and when you're leaving. Right now, or later today.</p></li>
           <li><h3>Find people going your way</h3><p>See rides heading to the same area at the same time, and choose one to join.</p></li>
           <li><h3>Meet at the pickup point</h3><p>One meeting spot per ride. Tap "I'm here" so everyone knows who has arrived.</p></li>
@@ -82,7 +145,7 @@
 
     <section class="section">
       <div class="container">
-        <div class="not-band">
+        <div class="not-band reveal">
           <h2>Sobat only helps you find each other</h2>
           <p>We don't run cabs, employ drivers or handle your money. You book your own ride and settle the fare with your group directly. Our part ends once your group has met.</p>
         </div>
@@ -91,11 +154,11 @@
 
     <section class="section" id="safety">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <p class="eyebrow">Safety</p>
           <h2>Built for riding with people you haven't met yet</h2>
         </div>
-        <div class="grid-3">
+        <div class="grid-3 reveal">
           <div><h3>Verified riders</h3><p>Every rider is verified before their first shared ride. One account per person.</p></div>
           <div><h3>Women-only rides</h3><p>Women can choose rides where every rider is a woman.</p></div>
           <div><h3>Ratings both ways</h3><p>Riders rate each other after every trip, so no-shows and bad behaviour become visible.</p></div>
@@ -108,11 +171,11 @@
 
     <section class="section">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <p class="eyebrow">Questions</p>
           <h2>Good to know</h2>
         </div>
-        <div class="faq">
+        <div class="faq reveal">
           <details>
             <summary>Where does Sobat work?</summary>
             <p>Anywhere in India. Post a trip from wherever you are. The more people near you use Sobat, the quicker you'll find someone going your way, so tell your colleagues and friends.</p>
@@ -131,7 +194,7 @@
 
     <section class="section" id="updates">
       <div class="container">
-        <div class="updates">
+        <div class="updates reveal">
           <div>
             <h2>Be first to ride with Sobat</h2>
             <p class="muted">We'll email you when Sobat launches. Nothing else.</p>
@@ -168,5 +231,6 @@
 
   <script src="assets/config.js"></script>
   <script src="assets/newsletter.js"></script>
+  <script src="assets/animations.js"></script>
 </body>
 </html>
