@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Delete your account · Sobat</title>
+  <meta name="description" content="How to permanently delete your Sobat account and data, in the app or on this website.">
+  <link rel="canonical" href="https://getsobat.in/delete-account.html">
+  <meta name="theme-color" content="#0F766E">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="./" aria-label="Sobat home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#0F766E"/><path d="M9 22C14 22 13 10 23 10" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="9" cy="22" r="3.6" fill="#FFFFFF"/><circle cx="23" cy="10" r="3.6" fill="#FFFFFF"/></svg>
+        Sobat
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="./">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container narrow doc">
+    <h1>Delete your Sobat account</h1>
+    <p>Deleting your account permanently removes your profile, trips, ride groups, messages, ratings, blocks and reports. It can't be undone.</p>
+
+    <section class="panel" aria-labelledby="in-app-h">
+      <h2 id="in-app-h">In the app</h2>
+      <p>Open Sobat, go to <strong>Profile → Delete account</strong>, and type DELETE to confirm.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="on-web-h">
+      <h2 id="on-web-h">On this website</h2>
+      <p class="muted">Sign in the same way you sign in to the app. This proves the account is yours, so nobody can delete someone else's account.</p>
+      <noscript><p class="warning">This page needs JavaScript to sign you in. You can also delete your account in the app, or email us below.</p></noscript>
+
+      <div id="step-signin">
+        <form id="phone-form" class="row" novalidate>
+          <label class="field" for="phone">Phone number
+            <input class="input" id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="98765 43210">
+          </label>
+          <button class="button" type="submit" id="send-code">Send code</button>
+        </form>
+        <p class="or">or</p>
+        <button class="button secondary" type="button" id="google">Continue with Google</button>
+        <p class="status" id="signin-status" role="status" aria-live="polite"></p>
+      </div>
+
+      <div id="step-code" hidden>
+        <form id="code-form" class="row" novalidate>
+          <label class="field" for="code">Code sent to <span id="code-phone"></span>
+            <input class="input" id="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="6-digit code">
+          </label>
+          <button class="button" type="submit" id="verify-code">Verify</button>
+        </form>
+        <p class="status" id="code-status" role="status" aria-live="polite"></p>
+        <button class="button secondary" type="button" id="change-number">Use a different number</button>
+      </div>
+
+      <div id="step-confirm" hidden>
+        <p>Signed in as <span class="identity" id="identity"></span></p>
+        <p class="warning">This permanently deletes this account and all its data. You'll need to sign up again to use Sobat.</p>
+        <label class="field" for="confirm-text">Type DELETE to confirm
+          <input class="input" id="confirm-text" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false">
+        </label>
+        <div class="row">
+          <button class="button danger" type="button" id="delete-btn" disabled>Delete my account</button>
+          <button class="button secondary" type="button" id="cancel-btn">Cancel</button>
+        </div>
+        <p class="status" id="confirm-status" role="status" aria-live="polite"></p>
+      </div>
+
+      <div id="step-done" hidden>
+        <p class="status" data-kind="ok">Your Sobat account and its data have been deleted.</p>
+        <p class="muted">If you also want to stop getting launch emails, reply to any of them or email us.</p>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="help-h">
+      <h2 id="help-h">Can't sign in?</h2>
+      <p>If you no longer have the phone number or Google account you signed up with, email <strong>hello@getsobat.in</strong> with the details of your account. We'll confirm the account is yours before deleting anything.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© 2026 Sobat · Pune, India</span>
+      <nav aria-label="Footer">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="delete-account.html">Delete account</a>
+        <span>hello@getsobat.in</span>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/config.js"></script>
+  <script src="assets/delete-account.js"></script>
+</body>
+</html>
