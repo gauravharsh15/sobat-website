@@ -14,7 +14,7 @@
   <meta property="og:image" content="https://getsobat.in/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <meta name="theme-color" content="#0F766E">
+  <meta name="theme-color" content="#5B3DF5">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -22,7 +22,7 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="./" aria-label="Sobat home">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#0F766E"/><path d="M9 22C14 22 13 10 23 10" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="9" cy="22" r="3.6" fill="#FFFFFF"/><circle cx="23" cy="10" r="3.6" fill="#FFFFFF"/></svg>
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#5B3DF5"/><path d="M9 22C14 22 13 10 23 10" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="9" cy="22" r="3.6" fill="#FFFFFF"/><circle cx="23" cy="10" r="3.6" fill="#FFB23E"/></svg>
         Sobat
       </a>
       <nav class="site-nav" aria-label="Main">
@@ -49,23 +49,34 @@
     <h2>What we collect</h2>
     <p>To run the matching and safety features described below, we collect:</p>
     <ul>
-      <li>Phone number, and email if you sign in with Google</li>
-      <li>First name and profile photo</li>
-      <li>Gender, age range, and a coarse profession category — shown only to riders you’re matched with</li>
-      <li>Pickup and drop locations for each trip you post, and your device location if you use “current location” to set one</li>
-      <li>Identity verification result from our KYC provider (a pass/fail outcome only — we never store your ID number or a copy of your ID document ourselves)</li>
-      <li>Messages you send in a group chat, and ratings you give or receive</li>
-      <li>A push-notification token, if you allow notifications</li>
+      <li>Your phone number, and your email if you sign in with Google.</li>
+      <li>Your first and last name, profile photo, date of birth and gender. Riders you share a ride with see your first name, photo and an age range worked out from your date of birth. They never see your last name, date of birth or phone number.</li>
+      <li>A coarse profession category, if you choose to add one.</li>
+      <li>Pickup and drop points for rides you start or join, and your device location when you use “current location” or look for rides leaving near you.</li>
+      <li>The routes people search, kept only as a daily count per area of about 1 km, with nothing that identifies who searched.</li>
+      <li>If you verify your identity: the result from our licensed verification provider (pass or fail only). We never store your ID number or a copy of your ID document.</li>
+      <li>Messages you send in a ride’s chat, ratings you give or receive, and reports you file.</li>
+      <li>A push-notification token, if you allow notifications.</li>
     </ul>
 
+    <h2>What stays on your phone</h2>
+    <p>Your saved Home and Work places and your recent places are stored only on your phone. They’re never uploaded. We only see a place when you search for, start or join a ride with it.</p>
+
     <h2>Why we collect it</h2>
-    <p>Only to match you with compatible riders, coordinate the meetup, verify identity before a first ride, and let riders rate each other. We don’t use your data for advertising, and we don’t sell it.</p>
+    <p>Only to show you rides going your way, put you in a ride with compatible riders, help you meet up, notify you about your rides, and let riders rate each other. We don’t use your data for advertising, and we don’t sell it.</p>
+
+    <h2>Who sees what</h2>
+    <p>Before you join a ride, other riders see only facts about it: where and when it goes, how many seats are left, and its riders’ average rating. They never see who is in it. Once you’re in a ride together, its riders see each other’s first name, photo, age range, profession and rating. A ride’s chat is visible only to its riders.</p>
 
     <h2>Who we share it with</h2>
-    <p>We use a small number of service providers to run the app, each processing only what they need to do their job: Supabase (hosting our database and login), Twilio (sending SMS verification codes), Google (sign-in, and location search), Expo (delivering push notifications), GitHub (hosting this website), and our identity verification provider. None of them are permitted to use your data for their own purposes.</p>
+    <p>We use a few service providers to run the app, each processing only what it needs: Supabase (our database, sign-in and live updates), our SMS provider (verification codes), Google (Google sign-in and place search), your phone’s own maps service from Apple or Google (to name a point you drop on the map), Expo (push notifications), GitHub (hosting this website), and, once available, our identity verification provider. None of them may use your data for their own purposes.</p>
 
-    <h2>Location data</h2>
-    <p>Pickup and drop points you post are visible to riders you’re matched or browsing candidates with. We treat this as our most sensitive data category — it’s kept only as long as needed for the trip and matching history, and access is limited to people you’ve actually matched with.</p>
+    <h2>How long we keep it</h2>
+    <ul>
+      <li>A ride’s chat is deleted 30 days after the ride ends.</li>
+      <li>Exact pickup and drop points are rounded to an area of about 1 km 30 days after a ride ends. We keep that area-level history for your ride list and our statistics.</li>
+      <li>Your account and everything linked to it is deleted when you delete your account.</li>
+    </ul>
 
     <h2>Website and newsletter</h2>
     <p>If you subscribe to updates on this website, we store your email address only to send you news about Sobat, such as when it launches. You can unsubscribe at any time. This website doesn’t use cookies, advertising or analytics trackers.</p>

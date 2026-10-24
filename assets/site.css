@@ -2,14 +2,14 @@
    Layout: a narrow reading column for legal pages, a wider one for the home page.
    System fonts only, so the site makes no third-party requests. */
 :root {
-  --bg: #F6F8F7;
+  --bg: #F5F4FA;
   --surface: #FFFFFF;
-  --ink: #0F1D1B;
-  --muted: #53645F;
-  --line: #DCE5E2;
-  --accent: #0F766E;
-  --accent-ink: #0B5A54;
-  --accent-soft: #E0F1EE;
+  --ink: #16132D;
+  --muted: #5E5A7A;
+  --line: #E8E5F2;
+  --accent: #5B3DF5;
+  --accent-ink: #3B22C6;
+  --accent-soft: #EDE9FF;
   --on-accent: #FFFFFF;
   --warn-bg: #FEF3C7;
   --warn-ink: #92400E;
@@ -22,15 +22,15 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0D1514;
-    --surface: #141E1C;
-    --ink: #E3ECE9;
-    --muted: #97A9A4;
-    --line: #24322F;
-    --accent: #34B5A7;
-    --accent-ink: #5FD0C2;
-    --accent-soft: #11332F;
-    --on-accent: #062320;
+    --bg: #0F0C24;
+    --surface: #1A1638;
+    --ink: #ECEAF6;
+    --muted: #A9A6C4;
+    --line: #2C2752;
+    --accent: #9C87FF;
+    --accent-ink: #B9A8FF;
+    --accent-soft: #251E57;
+    --on-accent: #120E2E;
     --warn-bg: #3A2C0E;
     --warn-ink: #F3C567;
     --danger: #F2857A;
@@ -109,7 +109,7 @@ h3 { font-size: 18px; font-weight: 700; }
 .name-note span[lang="mr"] { font-weight: 600; color: var(--ink); }
 
 /* Home: example ride card */
-.ride-card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 20px; display: grid; gap: 14px; box-shadow: 0 18px 40px -28px rgba(15, 29, 27, 0.45); }
+.ride-card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 20px; display: grid; gap: 14px; box-shadow: 0 18px 40px -28px rgba(22, 19, 45, 0.45); }
 .ride-card .tag { justify-self: start; font-size: 12px; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; }
 .route { display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 4px 12px; }
 .route .dot { width: 12px; height: 12px; border-radius: 50%; border: 3px solid var(--accent); margin-top: 6px; background: var(--surface); }
@@ -257,7 +257,7 @@ h3 { font-size: 18px; font-weight: 700; }
     .button { transition: transform 0.15s ease, filter 0.15s ease, background-color 0.15s ease; }
     .button:hover { transform: translateY(-1px); }
     .steps li, .fact, .faq details { transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
-    .steps li:hover, .fact:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 16px 30px -24px rgba(15, 29, 27, 0.55); }
+    .steps li:hover, .fact:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 16px 30px -24px rgba(22, 19, 45, 0.55); }
     .faq details:hover { border-color: var(--accent); }
   }
 }
