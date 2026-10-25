@@ -8,6 +8,14 @@
   <meta name="theme-color" content="#5B3DF5">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/site.css">
+  <script>
+    // The web app lives at /app/ as a single page. A link to one of its
+    // screens (/app/ride/...) lands here, so hand it to the app, which puts
+    // the path back before it starts.
+    if (location.pathname.indexOf('/app/') === 0) {
+      location.replace('/app/?p=' + encodeURIComponent(location.pathname + location.search + location.hash));
+    }
+  </script>
 </head>
 <body>
   <main class="container narrow doc">
