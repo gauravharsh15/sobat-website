@@ -14,11 +14,22 @@ scripts or fonts. Hosted on GitHub Pages from the `main` branch.
 | `privacy.html` | Privacy policy. Mirrors `app/privacy-policy.tsx` in the app repo |
 | `terms.html` | Terms of service. Mirrors `app/terms.tsx` in the app repo |
 | `delete-account.html` | Sign in (phone OTP or Google), then delete the account via `delete_own_account()` |
-| `404.html` | Not-found page |
+| `404.html` | Not-found page. Also forwards web-app deep links (`/app/...`) and ride invites (`/r/<ride id>`) to the web app |
+| `blog/` | The blog: an index and one folder per post. Generated: don't edit by hand |
+| `app/` | The web app (getsobat.in/app), built from the app repo by `npm run web:deploy`. Don't edit by hand |
 
 The legal pages are **drafts**: keep the draft banner and the `[bracketed]`
 placeholders until they have real, reviewed values. Keep them in sync with the
 app's copies.
+
+## Blog
+
+Posts live in `tools/blog/posts.py` and `tools/blog/posts_rules.py` (anything
+citing a rule, a fare or a price goes in the second, with its sources and the
+date it was checked). `python3 tools/blog/build.py .` regenerates `blog/` and
+`sitemap.xml`; commit the result. Every page gets its own title, description,
+canonical URL, Open Graph tags and BlogPosting + BreadcrumbList structured data.
+Keep descriptions under 160 characters and titles under about 60.
 
 ## Backend
 

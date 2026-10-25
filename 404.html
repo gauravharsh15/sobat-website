@@ -15,6 +15,11 @@
     if (location.pathname.indexOf('/app/') === 0) {
       location.replace('/app/?p=' + encodeURIComponent(location.pathname + location.search + location.hash));
     }
+    // Ride invites shared from the app (getsobat.in/r/<ride id>) open that
+    // ride's invite screen in the web app.
+    else if (/^\/r\/[0-9a-f-]{36}\/?$/i.test(location.pathname)) {
+      location.replace('/app/?p=' + encodeURIComponent('/app' + location.pathname.replace(/\/$/, '')));
+    }
   </script>
 </head>
 <body>

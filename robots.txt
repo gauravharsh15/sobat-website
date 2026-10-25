@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
-# The web app (sign-in screens): nothing for search engines.
+# The web app (sign-in screens) and the blog builder: nothing for search engines.
 Disallow: /app/
+Disallow: /tools/
 
 Sitemap: https://getsobat.in/sitemap.xml

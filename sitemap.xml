@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://getsobat.in/</loc><lastmod>2026-10-23</lastmod><priority>1.0</priority></url>
-  <url><loc>https://getsobat.in/privacy.html</loc><lastmod>2026-10-23</lastmod><priority>0.3</priority></url>
-  <url><loc>https://getsobat.in/terms.html</loc><lastmod>2026-10-23</lastmod><priority>0.3</priority></url>
-  <url><loc>https://getsobat.in/delete-account.html</loc><lastmod>2026-10-23</lastmod><priority>0.3</priority></url>
+  <url><loc>https://getsobat.in/</loc><lastmod>2026-10-25</lastmod><priority>1.0</priority></url>
+  <url><loc>https://getsobat.in/blog/</loc><lastmod>2026-10-25</lastmod><priority>0.8</priority></url>
+  <url><loc>https://getsobat.in/blog/is-carpooling-legal-in-india/</loc><lastmod>2026-10-25</lastmod><priority>0.7</priority></url>
+  <url><loc>https://getsobat.in/blog/ola-uber-surge-pricing-cancellation-rules/</loc><lastmod>2026-10-25</lastmod><priority>0.7</priority></url>
+  <url><loc>https://getsobat.in/blog/auto-taxi-meter-fare-maharashtra/</loc><lastmod>2026-10-25</lastmod><priority>0.7</priority></url>
+  <url><loc>https://getsobat.in/blog/carpool-scams-how-to-avoid/</loc><lastmod>2026-10-25</lastmod><priority>0.7</priority></url>
+  <url><loc>https://getsobat.in/blog/share-cab-with-strangers-safely/</loc><lastmod>2026-10-25</lastmod><priority>0.7</priority></url>
+  <url><loc>https://getsobat.in/blog/how-to-split-cab-fare/</loc><lastmod>2026-10-25</lastmod><priority>0.7</priority></url>
+  <url><loc>https://getsobat.in/blog/outstation-cab-sharing/</loc><lastmod>2026-10-25</lastmod><priority>0.7</priority></url>
+  <url><loc>https://getsobat.in/blog/save-money-office-commute-cab/</loc><lastmod>2026-10-25</lastmod><priority>0.7</priority></url>
+  <url><loc>https://getsobat.in/privacy.html</loc><lastmod>2026-10-25</lastmod><priority>0.3</priority></url>
+  <url><loc>https://getsobat.in/terms.html</loc><lastmod>2026-10-25</lastmod><priority>0.3</priority></url>
+  <url><loc>https://getsobat.in/delete-account.html</loc><lastmod>2026-10-25</lastmod><priority>0.3</priority></url>
 </urlset>

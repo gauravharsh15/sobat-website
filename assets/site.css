@@ -278,6 +278,47 @@ h3 { font-size: 18px; letter-spacing: -0.015em; font-weight: 700; }
 .identity { font-weight: 700; color: var(--ink); }
 .notfound { padding-block: 72px; display: grid; gap: 16px; justify-items: start; }
 
+/* ── Blog ── */
+.crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 28px; font-size: 14px; font-weight: 600; color: var(--muted); }
+.crumbs a { color: var(--ink-soft); text-decoration: none; }
+.crumbs a:hover { color: var(--brand); }
+.post-head { display: grid; gap: 14px; padding-block: 18px 12px; }
+.post-head h1 { font-size: clamp(32px, 5.2vw, 48px); }
+.post-meta { margin: 0; font-size: 14px; font-weight: 600; color: var(--muted); }
+.post-body { font-size: 17px; line-height: 1.75; color: var(--ink); }
+.post-body h2 { font-size: clamp(23px, 3vw, 28px); letter-spacing: -0.02em; margin: 44px 0 12px; }
+.post-body h3 { font-size: 19px; margin: 28px 0 8px; }
+.post-body p { margin: 0 0 16px; }
+.post-body ul, .post-body ol { margin: 0 0 18px; padding-left: 1.3em; display: grid; gap: 10px; }
+.post-body li::marker { color: var(--brand); font-weight: 800; }
+.post-body a { color: var(--brand-deep); font-weight: 600; }
+.post-body .note { background: var(--marigold-soft); color: var(--warn-ink); border-radius: var(--radius-sm); padding: 12px 16px; font-size: 14px; font-weight: 600; line-height: 1.55; margin-bottom: 8px; }
+.callout { background: var(--brand-softer); border: 1px solid var(--brand-soft); border-radius: var(--radius); padding: 18px 20px; margin: 0 0 20px; }
+.callout > :last-child { margin-bottom: 0; }
+.table-wrap { overflow-x: auto; margin: 0 0 20px; background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow-card); }
+.table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.5; }
+.table.wide { min-width: 600px; }
+.table caption { caption-side: top; text-align: left; padding: 14px 16px 2px; font-size: 14px; font-weight: 700; color: var(--ink-soft); }
+.table th, .table td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.table thead th { background: var(--surface-muted); font-weight: 800; }
+.table tbody th { font-weight: 700; }
+.table tbody tr:last-child > * { border-bottom: 0; }
+.sources { font-size: 15px; }
+.sources a { font-weight: 500; }
+.post-cta { margin-top: 48px; }
+.related { margin-top: 56px; display: grid; gap: 18px; }
+.related h2 { font-size: 24px; }
+.blog-index .post-head { max-width: 760px; margin-bottom: 18px; }
+.blog-index .post-cta { margin-top: 56px; }
+.post-cards { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.post-card { background: var(--surface); border-radius: var(--radius-lg); padding: 22px; display: grid; gap: 10px; align-content: start; box-shadow: var(--shadow-card); color: inherit; text-decoration: none; }
+.post-card h3 { font-size: 19px; line-height: 1.25; }
+.post-card p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+.post-card .more { color: var(--brand); font-size: 14px; font-weight: 700; }
+.post-card:hover { color: inherit; }
+.post-card:hover h3 { color: var(--brand-deep); }
+.guides-more { margin-top: 18px; }
+
 /* ── Small screens ── */
 @media (max-width: 920px) {
   .hero-grid { grid-template-columns: 1fr; gap: 36px; padding-block: 24px 56px; }
@@ -349,8 +390,8 @@ h3 { font-size: 18px; letter-spacing: -0.015em; font-weight: 700; }
   @media (hover: hover) {
     .button { transition: transform 0.15s ease, filter 0.15s ease, background-color 0.15s ease, border-color 0.15s ease; }
     .button:hover { transform: translateY(-1px); }
-    .steps li, .fact, .grid-3 > div, .kind, .faq details { transition: transform 0.25s ease, box-shadow 0.25s ease; }
-    .steps li:hover, .fact:hover, .grid-3 > div:hover, .kind:hover { transform: translateY(-4px); box-shadow: var(--shadow-float); }
+    .steps li, .fact, .grid-3 > div, .kind, .faq details, .post-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .steps li:hover, .fact:hover, .grid-3 > div:hover, .kind:hover, .post-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-float); }
   }
 }
 
