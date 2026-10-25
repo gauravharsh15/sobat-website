@@ -276,6 +276,9 @@ h3 { font-size: 18px; letter-spacing: -0.015em; font-weight: 700; }
 .row .field { flex: 1 1 200px; }
 .warning { background: var(--danger-soft); color: var(--danger); border-radius: var(--radius-sm); padding: 12px 14px; font-size: 14px; font-weight: 600; }
 .identity { font-weight: 700; color: var(--ink); }
+.alt-signin { margin-top: 6px; }
+.alt-signin summary { cursor: pointer; font-size: 14px; font-weight: 600; color: var(--ink-soft); }
+.alt-signin[open] summary { margin-bottom: 12px; }
 .notfound { padding-block: 72px; display: grid; gap: 16px; justify-items: start; }
 
 /* ── Blog ── */

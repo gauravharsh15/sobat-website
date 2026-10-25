@@ -40,7 +40,7 @@
 
     <section class="panel" aria-labelledby="in-app-h">
       <h2 id="in-app-h">In the app</h2>
-      <p>Open Sobat, go to <strong>Profile → Delete account</strong>, and type DELETE to confirm.</p>
+      <p>Open Sobat, go to <strong>You → Delete account</strong>, and type DELETE to confirm.</p>
     </section>
 
     <section class="panel" aria-labelledby="on-web-h">
@@ -49,15 +49,19 @@
       <noscript><p class="warning">This page needs JavaScript to sign you in. You can also delete your account in the app, or email us below.</p></noscript>
 
       <div id="step-signin">
-        <form id="phone-form" class="row" novalidate>
-          <label class="field" for="phone">Phone number
-            <input class="input" id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="98765 43210">
-          </label>
-          <button class="button" type="submit" id="send-code">Send code</button>
-        </form>
-        <p class="or">or</p>
-        <button class="button secondary" type="button" id="google">Continue with Google</button>
+        <button class="button" type="button" id="google">Continue with Google</button>
         <p class="status" id="signin-status" role="status" aria-live="polite"></p>
+        <!-- Sobat signs riders in with Google for now (no SMS provider yet);
+             phone codes stay here for accounts made with a phone number. -->
+        <details class="alt-signin">
+          <summary>Signed up with a phone number instead?</summary>
+          <form id="phone-form" class="row" novalidate>
+            <label class="field" for="phone">Phone number
+              <input class="input" id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="98765 43210">
+            </label>
+            <button class="button secondary" type="submit" id="send-code">Send code</button>
+          </form>
+        </details>
       </div>
 
       <div id="step-code" hidden>
