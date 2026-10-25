@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Page not found · Sobat</title>
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#5B3DF5">
+  <meta name="theme-color" content="#F5F4FA">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/site.css">
   <script>
@@ -18,10 +18,23 @@
   </script>
 </head>
 <body>
-  <main class="container narrow doc">
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/" aria-label="Sobat home">
+        <span class="brand-tile"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M18 45 C 32 45, 32 19, 46 19" stroke="#FFFFFF" stroke-width="6.5" fill="none" stroke-linecap="round"/><circle cx="18" cy="45" r="6.6" fill="#FFFFFF"/><circle cx="46" cy="19" r="6.6" fill="#FFB23E"/></svg></span>
+        <span class="brand-word">sobat</span>
+      </a>
+      <a class="button small" href="/app/" style="margin-left: auto">Open the app</a>
+    </div>
+  </header>
+
+  <main class="container narrow notfound">
     <h1>This page took a wrong turn</h1>
     <p class="muted">The page you're looking for doesn't exist.</p>
-    <p><a class="button" href="/">Go to the Sobat home page</a></p>
+    <div class="hero-actions">
+      <a class="button" href="/app/">Open the app</a>
+      <a class="button secondary" href="/">Go to the home page</a>
+    </div>
   </main>
 </body>
 </html>
