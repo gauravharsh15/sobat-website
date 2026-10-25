@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <!-- viewport-fit=cover: the app draws under the notch and keeps clear of it with safe-area insets. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Sobat</title>
+    <!-- Installable web app (getsobat.in/app): manifest, icons, iPhone home-screen tags. -->
+    <link rel="manifest" href="/app/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/app/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Sobat" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <script>
+      // A deep link (getsobat.in/app/ride/…) reaches GitHub Pages' 404 page,
+      // which sends it here as /app/?p=<path>. Put the path back before the
+      // app starts, so the router opens the right screen.
+      (function () {
+        var p = new URLSearchParams(window.location.search).get('p');
+        if (p && p.indexOf('/app/') === 0) window.history.replaceState(null, '', p);
+      })();
+    </script>
+    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+    <style id="expo-reset">
+      /* These styles make the body full-height */
+      html,
+      body {
+        height: 100%;
+      }
+      /* These styles disable body scrolling if you are using <ScrollView> */
+      body {
+        overflow: hidden;
+      }
+      /* These styles make the root element full-height */
+      #root {
+        display: flex;
+        height: 100%;
+        flex: 1;
+      }
+    </style>
+  <meta name="theme-color" content="#5B3DF5">
+<meta name="description" content="Share a cab with people going your way. Split the fare, halve the CO2.">
+<link rel="icon" href="/app/favicon.ico"/><link rel="preload" href="/app/_expo/static/css/leaflet-df687fead8c4838a4e6b8bcb2f176a0e.css" as="style">
+<link rel="stylesheet" href="/app/_expo/static/css/leaflet-df687fead8c4838a4e6b8bcb2f176a0e.css"></head>
+
+  <body>
+    <noscript>Sobat needs JavaScript. Turn it on, or get the app.</noscript>
+    <div id="root"></div>
+    <script>
+      // Opens instantly next time, even on a weak connection (sw.js).
+      if ('serviceWorker' in navigator && location.hostname !== 'localhost') {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/app/sw.js', { scope: '/app/' }).catch(function () {});
+        });
+      }
+    </script>
+  <script src="/app/_expo/static/js/web/__expo-metro-runtime-8c088df87a31e4e6accd81c554ec290d.js" defer></script><script src="/app/_expo/static/js/web/__common-fd1f4bb557914233e9883d6721e44288.js" defer></script><script src="/app/_expo/static/js/web/entry-a6141b48ef6021993005373aaf08c2e6.js" defer></script>
+</body>
+</html>
