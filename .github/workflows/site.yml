@@ -1,0 +1,63 @@
+# Builds getsobat.in (tools/blog/build.py: this repo's pages plus the content
+# published in the admin console) and deploys it to GitHub Pages.
+#   * every push to main (pages, styles, the web app from npm run web:deploy)
+#   * when an owner publishes in the admin console (the site-publish Edge
+#     Function starts this workflow)
+#   * every 30 minutes, so scheduled posts go live; skipped when nothing changed
+# After a deploy, the changed addresses go to IndexNow (Bing, Yandex and
+# others). Needs Settings → Pages → Source: "GitHub Actions". No secrets: the
+# content comes from site_export(), which is public.
+name: Site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      deploy: ${{ steps.build.outputs.deploy }}
+      indexnow: ${{ steps.build.outputs.indexnow }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install markdown-it-py==3.0.0
+      - id: build
+        run: python3 tools/blog/build.py _site --changes "$GITHUB_OUTPUT" --event "${{ github.event_name }}"
+      - if: steps.build.outputs.deploy == 'true'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Tell search engines (IndexNow)
+        if: needs.build.outputs.indexnow != ''
+        env:
+          BODY: ${{ needs.build.outputs.indexnow }}
+        run: |
+          sleep 60
+          printf '%s' "$BODY" | curl -sS -o /dev/null -w "IndexNow: HTTP %{http_code}\n" -X POST https://api.indexnow.org/indexnow -H "Content-Type: application/json; charset=utf-8" --data-binary @-

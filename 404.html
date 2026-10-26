@@ -10,10 +10,16 @@
   <link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
   <link rel="stylesheet" href="/assets/site.css">
   <script>
+    // Old addresses of moved pages (Site settings in the admin console);
+    // tools/blog/build.py fills this in.
+    var REDIRECTS = {};
+    if (REDIRECTS[location.pathname]) {
+      location.replace(REDIRECTS[location.pathname]);
+    }
     // The web app lives at /app/ as a single page. A link to one of its
     // screens (/app/ride/...) lands here, so hand it to the app, which puts
     // the path back before it starts.
-    if (location.pathname.indexOf('/app/') === 0) {
+    else if (location.pathname.indexOf('/app/') === 0) {
       location.replace('/app/?p=' + encodeURIComponent(location.pathname + location.search + location.hash));
     }
     // Ride invites shared from the app (getsobat.in/r/<ride id>) open that
