@@ -43,3 +43,34 @@ self.addEventListener('fetch', (event) => {
     );
   }
 });
+
+// Browser notifications (lib/web-push.ts, sent by the web-push Edge
+// Function): show them, and open their ride when tapped.
+self.addEventListener('push', (event) => {
+  let m = {};
+  try {
+    m = event.data ? event.data.json() : {};
+  } catch {
+    m = { body: event.data ? event.data.text() : '' };
+  }
+  event.waitUntil(
+    self.registration.showNotification(m.title || 'Sobat', {
+      body: m.body || '',
+      icon: '/app/icons/icon-192.png',
+      badge: '/app/icons/icon-192.png',
+      data: { url: m.url || '/home' },
+    }),
+  );
+});
+
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  const target = '/app' + ((event.notification.data && event.notification.data.url) || '/home');
+  event.waitUntil(
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((windows) => {
+      const open = windows.find((w) => new URL(w.url).pathname.startsWith('/app'));
+      if (open) return open.focus().then(() => open.navigate(target));
+      return self.clients.openWindow(target);
+    }),
+  );
+});
