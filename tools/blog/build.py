@@ -360,7 +360,9 @@ for r in redirects:
 </html>
 """)
 four = os.path.join(OUT, "404.html")
-open(four, "w").write(open(four).read().replace("var REDIRECTS = {};", "var REDIRECTS = " + json.dumps({r["from"]: r["to"] for r in redirects}) + ";"))
+# Read before opening to write: opening with "w" empties the file first.
+page404 = open(four).read().replace("var REDIRECTS = {};", "var REDIRECTS = " + json.dumps({r["from"]: r["to"] for r in redirects}) + ";")
+open(four, "w").write(page404)
 
 # robots.txt, the sitemap and the IndexNow key.
 disallow = "".join("Disallow: %s\n" % d for d in settings.get("robots_disallow", ["/app/", "/tools/"]))
