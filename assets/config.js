@@ -6,5 +6,5 @@ window.SOBAT = {
   publishableKey: "sb_publishable_bml0WO8M88PcwSrR9-HGUg_qRaNWHJG",
   // Cloudflare Turnstile site key (public by design; the secret key lives in
   // Supabase only). See assets/captcha.js.
-  turnstileSiteKey: ""
+  turnstileSiteKey: "0x4AAAAAAFmrf2kmZeADodRe"
 };
