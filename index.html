@@ -72,7 +72,7 @@
           "name": "Is sharing a cab with strangers safe?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Every rider has an account with their name and a mobile number that other riders never see. Riders rate each other after every ride, and everyone meets at a public pickup point. Before you join, you see the ride, not the people. You coordinate in the ride's chat without sharing phone numbers, and you can report or block anyone."
+            "text": "Every rider has an account with their name and a mobile number that other riders never see. Before you join, you see the ride, not the people. You coordinate in the ride's chat without sharing phone numbers, riders rate each other after every ride, and you can report or block anyone."
           }
         },
         {
@@ -88,7 +88,7 @@
           "name": "Can women choose women-only rides?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Women can choose rides where every rider is a woman, and Sobat enforces this on its servers, not just in the app."
+            "text": "Yes. Women can choose rides where every rider is a woman. Only women can see and join them, and Sobat enforces this on its servers, not just in the app."
           }
         },
         {
@@ -117,10 +117,10 @@
         },
         {
           "@type": "Question",
-          "name": "When can I use it?",
+          "name": "Is there an app?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Now, in your phone's browser: open getsobat.in/app and add it to your home screen, and it works like an app. Android and iPhone apps are coming; leave your email and we'll tell you when they're out."
+            "text": "Sobat works now, in your phone's browser: open getsobat.in/app and sign in. Add it to your home screen and it opens like an app, with nothing to download from a store."
           }
         }
       ]
@@ -138,17 +138,17 @@
       </a>
       <nav class="site-nav" aria-label="Main">
         <a href="#how">How it works</a>
-        <a href="#kinds">City &amp; outstation</a>
-        <a href="#safety">Safety</a>
+        <a href="#routes">Routes</a>
+        <a href="#safety">Why Sobat</a>
         <a href="/blog/">Blog</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a class="button light small" href="/app/">Open the app</a>
+      <a class="button light small" href="/app/">Open Sobat</a>
     </div>
   </header>
 
   <main>
-  <section class="hero">
+  <section class="hero" id="top">
     <span class="glow glow-a" aria-hidden="true"></span>
     <span class="glow glow-b" aria-hidden="true"></span>
 
@@ -171,14 +171,18 @@
           <circle cx="300" cy="52" r="9" fill="#FFFFFF"/>
           <circle cx="300" cy="52" r="3.5" fill="#FFB23E"/>
         </svg>
-        <p class="eyebrow">Shared cabs, anywhere in India</p>
-        <h1>Going the same way? <span class="hl">Share the cab.</span></h1>
-        <p class="lede">Sobat makes cab sharing simple: find people heading the same way, meet at one pickup point, and split a single Ola, Uber or auto. Fewer cabs on the road, a smaller fare for everyone.</p>
+        <p class="eyebrow">Cab sharing, anywhere in India</p>
+        <h1><span class="hl">Split your cab fare</span> with someone going your way.</h1>
+        <p class="lede">Join a ride heading your way, meet at one pickup point, and book one Ola, Uber or auto together.</p>
         <div class="hero-actions">
-          <a class="button light" href="/app/">Open the app <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="button light" href="/app/">Open Sobat, it's free <span class="arrow" aria-hidden="true">→</span></a>
           <a class="button glass" href="#how">How it works</a>
         </div>
-        <p class="hero-note">Works in your phone's browser; add it to your home screen to use it like an app. <span lang="mr">सोबत</span> (sobat) means going along together.</p>
+        <ul class="trust-chips" aria-label="Good to know">
+          <li class="pill glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>No download</li>
+          <li class="pill glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Free</li>
+          <li class="pill glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Women-only rides</li>
+        </ul>
       </div>
 
       <!-- The resting state (3 riders) is what shows without JavaScript or with
@@ -215,6 +219,114 @@
     </div>
   </section>
 
+  <section class="section" id="how">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">How it works</p>
+        <h2>Three steps from solo cab to shared fare</h2>
+      </div>
+      <ol class="steps reveal">
+        <li><h3>Search your route</h3><p>Say where you're going and when: right now, or later. Choose how far you'll walk to meet, 5 to 20 minutes.</p></li>
+        <li><h3>Join a ride, or start one</h3><p>See rides already going your way, the shortest walk first, and join in a tap. Nothing fits? Start one, and anyone searching your route sees it.</p></li>
+        <li><h3>Meet, book, split</h3><p>Meet at the ride's pickup point. One of you books an Ola, Uber or auto, and everyone pays their share by UPI or cash.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="money">
+    <div class="container">
+      <div class="converge reveal">
+        <div class="converge-copy">
+          <p class="eyebrow">What you save</p>
+          <h2>One cab, a share of the fare</h2>
+          <div class="fare-example">
+            <span class="fe-route">Pune → Mumbai cab</span>
+            <span class="fe-sum">~₹3,000 ÷ 4 = <strong>₹750 each</strong></span>
+            <span class="fe-note">An example: four riders going the whole way. Fares vary with the cab, the time and the traffic.</span>
+          </div>
+          <p class="muted">Within the city the fare splits equally. Outstation, it splits by how far each rider travels. Enter what the cab cost and everyone sees their share in rupees.</p>
+          <div class="impact">
+            <p class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>Your impact, counted</p>
+            <p>Every shared ride shows the CO₂ it kept out of the air, and your total keeps growing ride by ride.</p>
+          </div>
+        </div>
+        <svg class="converge-art" viewBox="0 0 360 200" role="img" aria-label="Three separate cab routes merging into one shared cab">
+          <text class="art-label" x="12" y="18">3 solo cabs</text>
+          <path class="lane lane-1" pathLength="1" d="M36 48 C 120 48, 150 104, 222 104"/>
+          <path class="lane lane-2" pathLength="1" d="M36 104 L 222 104"/>
+          <path class="lane lane-3" pathLength="1" d="M36 160 C 120 160, 150 104, 222 104"/>
+          <circle class="solo" cx="24" cy="48" r="9"/>
+          <circle class="solo" cx="24" cy="104" r="9"/>
+          <circle class="solo" cx="24" cy="160" r="9"/>
+          <path class="merged" pathLength="1" d="M222 104 L 318 104"/>
+          <g class="shared">
+            <circle cx="334" cy="104" r="16"/>
+            <circle class="person" cx="327" cy="104" r="2.6"/>
+            <circle class="person" cx="334" cy="104" r="2.6"/>
+            <circle class="person" cx="341" cy="104" r="2.6"/>
+          </g>
+          <text class="art-label strong" x="350" y="70" text-anchor="end">1 shared cab</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="routes">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Launch routes</p>
+        <h2>Starting in Pune</h2>
+        <p class="muted">Sobat works anywhere in India. These are the routes we're starting with.</p>
+      </div>
+      <div class="route-cards reveal">
+        <a class="route-card" href="/app/">
+          <span class="pill marigold">Outstation</span>
+          <h3>Pune ↔ Mumbai</h3>
+          <p>Share one cab on the expressway, either way. The fare splits by how far each of you rides.</p>
+          <span class="more">Find a ride <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="route-card" href="/app/">
+          <span class="pill marigold">Outstation</span>
+          <h3>Pune → Lonavala</h3>
+          <p>Weekend trips. Join a ride whose route passes near you, even if it starts across town.</p>
+          <span class="more">Find a ride <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="route-card" href="/app/">
+          <span class="pill brand">Within the city</span>
+          <h3>Kharadi ↔ Hinjewadi</h3>
+          <p>The cross-town office commute. Leave now, or plan the ride for tomorrow morning.</p>
+          <span class="more">Find a ride <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="route-card" href="/app/">
+          <span class="pill brand">Within the city</span>
+          <h3>Pune airport</h3>
+          <p>To or from the airport. Meet at one spot and take one cab instead of three.</p>
+          <span class="more">Find a ride <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="safety">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Why Sobat</p>
+        <h2>Built for riding with people you haven't met yet</h2>
+      </div>
+      <div class="grid-3 reveal">
+        <div><span class="icon-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><h3>Women-only rides</h3><p>Only women can see and join them. Sobat enforces it on its servers, not just in the app.</p></div>
+        <div><span class="icon-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span><h3>Your number stays private</h3><p>Coordinate in the ride's chat, with quick replies. Other riders never see your phone number.</p></div>
+        <div><span class="icon-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg></span><h3>The ride before the people</h3><p>Before you join, you see where a ride goes, when it leaves, the seats left and its rating. Names and photos come once you're in.</p></div>
+        <div><span class="icon-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg></span><h3>Approve who joins</h3><p>Planning a ride for later? Choose to approve each rider before they join.</p></div>
+        <div><span class="icon-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></span><h3>Report or block anyone</h3><p>Report anyone who makes you uncomfortable, and block them from ever matching with you again.</p></div>
+        <div><span class="icon-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="14" rx="3"/><path d="M2 10h20"/><path d="M16 15h2"/></svg></span><h3>Sobat never touches your money</h3><p>No payments in the app. You settle your share with your group by UPI or cash.</p></div>
+        <div><span class="icon-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h14v-5l-2-5H7l-2 5v5z"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/><path d="M5 12h14"/></svg></span><h3>Ola, Uber, Rapido or an auto</h3><p>One of you books the cab in the app you already use. Sobat helps you find each other.</p></div>
+        <div><span class="icon-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></span><h3>Outstation rides that pass by you</h3><p>Join a ride whose route goes near your pickup and your drop, even if it starts somewhere else.</p></div>
+        <div><span class="icon-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><line x1="11" y1="18" x2="13" y2="18"/></svg></span><h3>Installs from your browser</h3><p>Add it to your home screen in a few taps: two on Android, three on iPhone. No app store.</p></div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="why">
     <div class="container">
       <div class="section-head reveal">
@@ -242,115 +354,6 @@
           <p>of India's transport CO₂ comes from road vehicles. Transport is 14% of the country's energy-related emissions.</p>
           <a class="src" href="https://vajiramandravi.com/current-affairs/co2-emissions-from-transport-sector-could-be-slashed-up-to-71-by-2050-study/" rel="noopener" target="_blank">WRI India, 2020 data</a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="converge reveal">
-        <div class="converge-copy">
-          <p class="eyebrow">The fix is in the empty seats</p>
-          <h2>One cab instead of three</h2>
-          <p class="muted">A cab carrying one rider has three empty seats. When three people going the same way fill them, the same trip needs one cab instead of three: about a third of the fare each, and roughly a third of the emissions per person.</p>
-          <div class="impact">
-            <p class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>Your impact, counted</p>
-            <p>Every shared ride shows the CO₂ it kept out of the air, and your total keeps growing ride by ride.</p>
-          </div>
-        </div>
-        <svg class="converge-art" viewBox="0 0 360 200" role="img" aria-label="Three separate cab routes merging into one shared cab">
-          <text class="art-label" x="12" y="18">3 solo cabs</text>
-          <path class="lane lane-1" pathLength="1" d="M36 48 C 120 48, 150 104, 222 104"/>
-          <path class="lane lane-2" pathLength="1" d="M36 104 L 222 104"/>
-          <path class="lane lane-3" pathLength="1" d="M36 160 C 120 160, 150 104, 222 104"/>
-          <circle class="solo" cx="24" cy="48" r="9"/>
-          <circle class="solo" cx="24" cy="104" r="9"/>
-          <circle class="solo" cx="24" cy="160" r="9"/>
-          <path class="merged" pathLength="1" d="M222 104 L 318 104"/>
-          <g class="shared">
-            <circle cx="334" cy="104" r="16"/>
-            <circle class="person" cx="327" cy="104" r="2.6"/>
-            <circle class="person" cx="334" cy="104" r="2.6"/>
-            <circle class="person" cx="341" cy="104" r="2.6"/>
-          </g>
-          <text class="art-label strong" x="350" y="70" text-anchor="end">1 shared cab</text>
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="how">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">How it works</p>
-        <h2>Four steps from solo cab to shared ride</h2>
-      </div>
-      <ol class="steps reveal">
-        <li><h3>Say where you're going</h3><p>Pick your drop and when you're leaving: right now, or later. Your pickup is where you are.</p></li>
-        <li><h3>Join a ride, or start one</h3><p>See rides already going your way, the shortest walk first, and join in a tap. Nothing fits? Start one, and anyone searching your route sees it.</p></li>
-        <li><h3>Meet at the pickup point</h3><p>One meeting spot per ride. Tap "I'm here" so everyone knows who has arrived.</p></li>
-        <li><h3>Book one cab, split the fare</h3><p>One person books the Ola, Uber or auto. Everyone settles their share by UPI or cash.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="section" id="kinds">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Two kinds of ride</p>
-        <h2>Across town, or out of town</h2>
-      </div>
-      <div class="kinds reveal">
-        <div class="kind">
-          <div class="kind-head">
-            <span class="kind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-            <h3>Within the city</h3>
-          </div>
-          <ul>
-            <li>Rides that start a short walk from you and end a short walk from your drop.</li>
-            <li>You choose how far you'll walk to meet: 5, 10, 15 or 20 minutes.</li>
-            <li>Leave right now, or plan a ride for later.</li>
-            <li>The fare is split equally, by head.</li>
-          </ul>
-        </div>
-        <div class="kind out">
-          <div class="kind-head">
-            <span class="kind-icon out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></span>
-            <h3>Outstation</h3>
-          </div>
-          <ul>
-            <li>Longer trips out of town, in one cab booked for the whole way.</li>
-            <li>Join a ride whose route passes near you, even if it starts across town.</li>
-            <li>Get on and off along the way, wherever the route suits you.</li>
-            <li>The fare is split by how far each rider travels.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="not-band reveal">
-        <h2>Sobat only helps you find each other</h2>
-        <p>We don't run cabs, employ drivers or handle your money. You book your own ride and settle the fare with your group directly. Our part ends once your group has met.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="safety">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Safety</p>
-        <h2>Built for riding with people you haven't met yet</h2>
-      </div>
-      <div class="grid-3 reveal">
-        <div><span class="icon-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg></span><h3>Rides, not profiles</h3><p>Before you join, you see where a ride goes, when it leaves and how it's rated, never who's in it.</p></div>
-        <div><span class="icon-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg></span><h3>Real accounts</h3><p>Every rider has an account with their name and a mobile number. Other riders never see your number.</p></div>
-        <div><span class="icon-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><h3>Women-only rides</h3><p>Women can choose rides where every rider is a woman. Sobat enforces it on its servers, not just in the app.</p></div>
-        <div><span class="icon-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><h3>Ratings both ways</h3><p>Riders rate each other after every trip, so no-shows and bad behaviour become visible.</p></div>
-        <div><span class="icon-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span><h3>No phone numbers shared</h3><p>Coordinate in the ride's chat, with quick replies. Your number stays private.</p></div>
-        <div><span class="icon-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></span><h3>Report and block</h3><p>Report anyone who makes you uncomfortable, and block them from ever matching with you again.</p></div>
       </div>
     </div>
   </section>
@@ -404,7 +407,7 @@
         </details>
         <details>
           <summary>Is sharing a cab with strangers safe?</summary>
-          <p>Every rider has an account with their name and a mobile number that other riders never see. Riders rate each other after every ride, and everyone meets at a public pickup point. Before you join, you see the ride, not the people. You coordinate in the ride's chat without sharing phone numbers, and you can report or block anyone.</p>
+          <p>Every rider has an account with their name and a mobile number that other riders never see. Before you join, you see the ride, not the people. You coordinate in the ride's chat without sharing phone numbers, riders rate each other after every ride, and you can report or block anyone.</p>
         </details>
         <details>
           <summary>Can I share a cab for an outstation trip?</summary>
@@ -412,7 +415,7 @@
         </details>
         <details>
           <summary>Can women choose women-only rides?</summary>
-          <p>Yes. Women can choose rides where every rider is a woman, and Sobat enforces this on its servers, not just in the app.</p>
+          <p>Yes. Women can choose rides where every rider is a woman. Only women can see and join them, and Sobat enforces this on its servers, not just in the app.</p>
         </details>
         <details>
           <summary>Is Sobat a carpool app?</summary>
@@ -427,21 +430,9 @@
           <p>No. One person in your group books a normal Ola, Uber or auto in their own app. Sobat never sees or handles the fare.</p>
         </details>
         <details>
-          <summary>When can I use it?</summary>
-          <p>Now, in your phone's browser: open <a href="/app/">getsobat.in/app</a> and add it to your home screen, and it works like an app. Android and iPhone apps are coming; leave your email below and we'll tell you when they're out.</p>
+          <summary>Is there an app?</summary>
+          <p>Sobat works now, in your phone's browser: open <a href="/app/">getsobat.in/app</a> and sign in. Add it to your home screen and it opens like an app, with nothing to download from a store.</p>
         </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="cta-band reveal">
-        <span class="glow" aria-hidden="true"></span>
-        <p class="eyebrow" style="color: #FFC861">Ready when you are</p>
-        <h2>Your next cab could cost a third</h2>
-        <p>Open Sobat in your browser, sign in with Google, and see who's going your way.</p>
-        <a class="button light" href="/app/">Open the app <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -450,8 +441,8 @@
     <div class="container">
       <div class="updates reveal">
         <div>
-          <h2>Get the phone apps first</h2>
-          <p class="muted">Sobat works in your browser today. We'll email you when the Android and iPhone apps are out. Nothing else.</p>
+          <h2>Get Sobat news</h2>
+          <p class="muted">New routes and new features, by email, now and then. Nothing else.</p>
         </div>
         <form class="updates-form" id="updates-form" novalidate>
           <label class="sr-only" for="updates-email">Email address</label>
@@ -470,13 +461,24 @@
       </div>
     </div>
   </section>
+  <section class="section" id="start">
+    <div class="container">
+      <div class="cta-band reveal">
+        <span class="glow" aria-hidden="true"></span>
+        <p class="eyebrow" style="color: #FFC861">Ready when you are</p>
+        <h2>Your next cab, for a share of the fare</h2>
+        <p>Open Sobat in your browser, sign in with Google, and see the rides going your way.</p>
+        <a class="button light" href="/app/">Open Sobat, it's free <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <span class="footer-brand"><span class="brand-tile"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M18 45 C 32 45, 32 19, 46 19" stroke="#FFFFFF" stroke-width="6.5" fill="none" stroke-linecap="round"/><circle cx="18" cy="45" r="6.6" fill="#FFFFFF"/><circle cx="46" cy="19" r="6.6" fill="#FFB23E"/></svg></span>© 2026 Sobat · India</span>
       <nav aria-label="Footer">
-        <a href="/app/">Open the app</a>
+        <a href="/app/">Open Sobat</a>
         <a href="/blog/">Blog</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
@@ -485,6 +487,25 @@
       </nav>
     </div>
   </footer>
+
+  <!-- Phones: a sticky "Open Sobat" once the hero's button has scrolled away
+       (hidden again over the closing call to action). -->
+  <a class="sticky-cta button" id="sticky-cta" href="/app/" aria-hidden="true" tabindex="-1">Open Sobat, it's free <span class="arrow" aria-hidden="true">→</span></a>
+  <script>
+    (function () {
+      var bar = document.getElementById("sticky-cta");
+      if (!bar || !("IntersectionObserver" in window)) return;
+      var seen = new Map();
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { seen.set(e.target, e.isIntersecting); });
+        var show = !Array.from(seen.values()).some(Boolean);
+        bar.classList.toggle("show", show);
+        bar.setAttribute("aria-hidden", String(!show));
+        bar.tabIndex = show ? 0 : -1;
+      });
+      document.querySelectorAll(".hero-actions, .cta-band").forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 
   <script src="assets/config.js"></script>
   <script src="assets/captcha.js"></script>

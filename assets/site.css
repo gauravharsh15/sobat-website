@@ -149,8 +149,8 @@ h3 { font-size: 18px; letter-spacing: -0.015em; font-weight: 700; }
 .merge-art { width: min(240px, 70%); height: auto; overflow: visible; margin-bottom: -6px; }
 .merge-art .travel { opacity: 0; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
-.hero-note { margin: 0; font-size: 14px; color: var(--on-night-soft); }
-.hero-note span[lang="mr"] { font-weight: 700; color: #FFFFFF; }
+.trust-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.trust-chips .pill svg { color: #FFC861; }
 
 /* ── The example ride: the app's ride card ── */
 .ride-card { margin: 0; background: var(--surface); color: var(--ink); border-radius: var(--radius-lg); padding: 20px; display: grid; gap: 14px; box-shadow: 0 30px 60px -24px rgba(8, 4, 32, 0.6); }
@@ -201,27 +201,25 @@ h3 { font-size: 18px; letter-spacing: -0.015em; font-weight: 700; }
 .converge-art .art-label { font: 700 12px var(--font); fill: var(--muted); }
 .converge-art .art-label.strong { fill: var(--brand-deep); }
 
-.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; grid-template-columns: repeat(4, minmax(0, 1fr)); counter-reset: step; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); counter-reset: step; }
 .steps li { background: var(--surface); border-radius: var(--radius-lg); padding: 22px; display: grid; gap: 10px; align-content: start; counter-increment: step; box-shadow: var(--shadow-card); }
 .steps li::before { content: counter(step); font-family: var(--font-display); font-weight: 800; font-size: 16px; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--grad-brand); color: #FFFFFF; box-shadow: 0 8px 16px -8px rgba(91, 61, 245, 0.7); }
-.steps p, .grid-3 p, .kinds p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+.steps p, .grid-3 p, .route-card p { margin: 0; color: var(--ink-soft); font-size: 15px; }
 
-/* Within city / Outstation */
-.kinds { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.kind { background: var(--surface); border-radius: var(--radius-lg); padding: 24px; display: grid; gap: 12px; align-content: start; box-shadow: var(--shadow-card); }
-.kind-head { display: flex; align-items: center; gap: 12px; }
-.kind-icon { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; background: var(--brand-soft); color: var(--brand-deep); flex: none; }
-.kind-icon.out { background: var(--marigold-soft); color: var(--marigold-deep); }
-.kind-icon svg { width: 22px; height: 22px; }
-.kind ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
-.kind li { display: flex; gap: 10px; color: var(--ink-soft); font-size: 15px; }
-.kind li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--brand); margin-top: 9px; flex: none; }
-.kind.out li::before { background: var(--marigold); }
+/* The money example */
+.fare-example { background: var(--surface); border-radius: var(--radius-lg); padding: 20px 22px; display: grid; gap: 4px; box-shadow: var(--shadow-card); }
+.fe-route { font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.fe-sum { font-family: var(--font-display); font-weight: 800; font-size: clamp(24px, 3.4vw, 32px); letter-spacing: -0.03em; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.fe-sum strong { color: var(--brand); font-weight: 800; }
+.fe-note { font-size: 13px; color: var(--muted); font-weight: 600; }
 
-.not-band { background: var(--grad-night); color: #FFFFFF; border-radius: var(--radius-xl); padding: 32px; display: grid; gap: 10px; position: relative; overflow: hidden; }
-.not-band h2 { color: #FFFFFF; }
-.not-band p { margin: 0; max-width: 62ch; color: var(--on-night-soft); }
-.not-band::after { content: ""; position: absolute; right: -80px; bottom: -120px; width: 320px; height: 320px; border-radius: 50%; background: #8E74FF; opacity: 0.25; filter: blur(60px); }
+/* Launch routes */
+.route-cards { display: grid; gap: 16px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.route-card { background: var(--surface); border-radius: var(--radius-lg); padding: 22px; display: grid; gap: 10px; align-content: start; justify-items: start; box-shadow: var(--shadow-card); color: inherit; text-decoration: none; }
+.route-card h3 { font-size: 20px; }
+.route-card .more { color: var(--brand); font-size: 14px; font-weight: 700; }
+.route-card:hover { color: inherit; }
+.route-card:hover h3 { color: var(--brand-deep); }
 
 .grid-3 { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .grid-3 > div { background: var(--surface); border-radius: var(--radius-lg); padding: 22px; display: grid; gap: 8px; align-content: start; box-shadow: var(--shadow-card); }
@@ -328,19 +326,31 @@ h3 { font-size: 18px; letter-spacing: -0.015em; font-weight: 700; }
 /* ── Small screens ── */
 @media (max-width: 920px) {
   .hero-grid { grid-template-columns: 1fr; gap: 36px; padding-block: 24px 56px; }
-  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps { grid-template-columns: 1fr; }
+  .route-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid-3 { grid-template-columns: 1fr 1fr; }
-  .converge, .updates, .kinds { grid-template-columns: 1fr; }
+  .converge, .updates { grid-template-columns: 1fr; }
 }
 @media (max-width: 720px) {
   .site-nav { display: none; }
   .site-header .button { margin-left: auto; }
+  /* Home on phones: the sticky "Open Sobat" (shown by index.html's script) */
+  .sticky-cta {
+    position: fixed; z-index: 20; left: max(16px, env(safe-area-inset-left, 0px)); right: max(16px, env(safe-area-inset-right, 0px));
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px)); padding-block: 15px;
+    box-shadow: 0 16px 36px -12px rgba(42, 31, 107, 0.6);
+    transform: translateY(calc(100% + 32px)); visibility: hidden;
+    transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), visibility 0s 0.3s;
+  }
+  .sticky-cta.show { transform: none; visibility: visible; transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  body:has(.sticky-cta) .site-footer .container { padding-bottom: 100px; }
 }
+@media (min-width: 721px) { .sticky-cta { display: none; } }
 @media (max-width: 560px) {
   .section { padding-block: 44px; }
-  .steps, .grid-3, .facts { grid-template-columns: 1fr; }
-  .updates, .cta-band, .not-band { padding: 24px; }
+  .grid-3, .facts, .route-cards { grid-template-columns: 1fr; }
+  .updates, .cta-band { padding: 24px; }
   .updates-row { flex-direction: column; }
   .brand-word { font-size: 22px; }
   .hero-actions .button { flex: 1 1 auto; }
@@ -396,8 +406,8 @@ h3 { font-size: 18px; letter-spacing: -0.015em; font-weight: 700; }
   @media (hover: hover) {
     .button { transition: transform 0.15s ease, filter 0.15s ease, background-color 0.15s ease, border-color 0.15s ease; }
     .button:hover { transform: translateY(-1px); }
-    .steps li, .fact, .grid-3 > div, .kind, .faq details, .post-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
-    .steps li:hover, .fact:hover, .grid-3 > div:hover, .kind:hover, .post-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-float); }
+    .steps li, .fact, .grid-3 > div, .route-card, .faq details, .post-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .steps li:hover, .fact:hover, .grid-3 > div:hover, .route-card:hover, .post-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-float); }
   }
 }
 
