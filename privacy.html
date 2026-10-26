@@ -72,18 +72,23 @@
     <h2>Who sees what</h2>
     <p>Before you join a ride, other riders see only facts about it: where and when it goes, how many seats are left, and its riders’ average rating. They never see who is in it. Once you’re in a ride together, its riders see each other’s first name, photo, age range, profession and rating. A ride’s chat is visible only to its riders.</p>
 
+    <h2>Safety reviews</h2>
+    <p>When a rider files a report, a small number of Sobat staff review it. To do that they can see the reported ride’s chat and riders, and the ride history, ratings and past reports of the people involved. Phone numbers and email addresses stay hidden unless a reviewer needs to contact someone about the report, and each time one is shown, that is recorded. Staff can warn a rider, suspend an account for a set time or until further notice (a suspended rider can’t start or join rides or chat), cancel a ride used for abuse, or delete an account when the law requires it. Staff sign in with two-step verification.</p>
+    <p>Every action our staff take is written to an audit log: who did it, what they did, to which account or ride, why, when, and a scrambled form of their network address. Nobody can change or delete its entries, including us. If an account is deleted, the log keeps only an internal account number, not the person’s name or contact details, so we can show how a safety or legal matter was handled.</p>
+
     <h2>Who we share it with</h2>
-    <p>We use a few service providers to run the app, each processing only what it needs: Supabase (our database, sign-in and live updates), WhatsApp from Meta (sending verification codes), our SMS provider (verification codes), Google (Google sign-in and place search), your phone’s own maps service from Apple or Google (to name a point you drop on the map), OpenStreetMap (maps in the web app), Expo (push notifications on phones), your browser’s push service (notifications in the web app), GitHub (hosting this website), and, once available, our identity verification provider. None of them may use your data for their own purposes.</p>
+    <p>We use a few service providers to run the app, each processing only what it needs: Supabase (our database, sign-in and live updates), WhatsApp from Meta (sending verification codes), our SMS provider (verification codes), Google (Google sign-in and place search), your phone’s own maps service from Apple or Google (to name a point you drop on the map), OpenStreetMap (maps in the web app), Cloudflare (a bot check on our website’s forms and web sign-in), Expo (push notifications on phones), your browser’s push service (notifications in the web app), GitHub (hosting this website), and, once available, our identity verification provider. None of them may use your data for their own purposes.</p>
 
     <h2>How long we keep it</h2>
     <ul>
-      <li>A ride’s chat is deleted 30 days after the ride ends.</li>
+      <li>A ride’s chat is deleted 30 days after the ride ends, unless a report about that ride is still open: then it’s kept until the report has been handled.</li>
+      <li>Entries in our staff audit log are kept for [audit log retention period].</li>
       <li>Exact pickup and drop points are rounded to an area of about 1 km 30 days after a ride ends. We keep that area-level history for your ride list and our statistics.</li>
       <li>Your account and everything linked to it is deleted when you delete your account.</li>
     </ul>
 
     <h2>Website and newsletter</h2>
-    <p>If you subscribe to updates on this website, or leave the newsletter switch on when you sign up in the app, we store your email address only to send you news about Sobat, such as when its apps launch. You can unsubscribe at any time. This website doesn’t use cookies, advertising or analytics trackers.</p>
+    <p>If you subscribe to updates on this website, or leave the newsletter switch on when you sign up in the app, we store your email address only to send you news about Sobat, such as when its apps launch. You can unsubscribe at any time. This website doesn’t use advertising or analytics trackers. Its newsletter and phone-code forms use Cloudflare Turnstile, a bot check that reads signals from your browser only to tell people from bots.</p>
 
     <h2>Your rights</h2>
     <p>Under India’s Digital Personal Data Protection Act, 2023, you can ask us what data we hold about you, correct it, or ask us to delete it. You can delete your account and all associated data yourself at any time from Profile → Delete account in the app, or on our website at <a href="delete-account.html">getsobat.in/delete-account.html</a>, or contact us at [grievance officer email].</p>

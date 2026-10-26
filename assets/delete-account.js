@@ -81,7 +81,10 @@
     }
   }
 
-  // Phone: send a code. create_user is false so this page never creates new accounts.
+  // Phone: send a code. create_user is false so this page never creates new
+  // accounts. Supabase Auth checks the Turnstile token itself (its captcha
+  // setting), so codes can't be requested without passing the check.
+  const captcha = window.sobatCaptcha($("phone-captcha"), "phone_code");
   $("phone-form").addEventListener("submit", async (e) => {
     e.preventDefault();
     const phone = normalizePhone($("phone").value);
@@ -90,13 +93,20 @@
       $("phone").focus();
       return;
     }
+    if (window.SOBAT.turnstileSiteKey && !captcha.token()) {
+      setStatus("signin-status", "One moment: checking you're not a bot. Try again in a few seconds.", "error");
+      return;
+    }
     $("send-code").disabled = true;
     setStatus("signin-status", "Sending code…");
+    const captchaToken = captcha.token();
+    captcha.reset();
     try {
-      await call("/auth/v1/otp", { body: { phone, create_user: false } });
+      await call("/auth/v1/otp", { body: { phone, create_user: false, gotrue_meta_security: { captcha_token: captchaToken } } });
     } catch (err) {
       let problem = null;
       if (err.status === 429) problem = "Too many attempts. Wait a minute, then try again.";
+      else if (/captcha/i.test(err.message)) problem = "The bot check didn't go through. Wait a moment, then try again.";
       else if (/invalid phone/i.test(err.message)) problem = "That doesn't look like a valid phone number.";
       else if (err.status >= 500 || /provider|sms/i.test(err.message)) problem = "Phone sign-in isn't available right now. Try Google, delete in the app, or email us.";
       if (problem) {

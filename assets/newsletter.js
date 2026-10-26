@@ -1,11 +1,13 @@
-// Newsletter sign-up. Calls the subscribe_newsletter() database function,
-// which only adds an email to the list; nothing on this site can read the list.
+// Newsletter sign-up. Posts to the "newsletter" Edge Function, which checks
+// the Turnstile token with Cloudflare and then adds the email to the list;
+// nothing on this site can read the list.
 (function () {
   const form = document.getElementById("updates-form");
   if (!form) return;
   const input = document.getElementById("updates-email");
   const status = document.getElementById("updates-status");
   const button = form.querySelector('button[type="submit"]');
+  const captcha = window.sobatCaptcha(document.getElementById("updates-captcha"), "newsletter");
 
   function show(text, kind) {
     status.textContent = text;
@@ -25,13 +27,17 @@
       show("You're on the list.", "ok");
       return;
     }
+    if (!captcha.token()) {
+      show("One moment: checking you're not a bot. Try again in a few seconds.", "error");
+      return;
+    }
     button.disabled = true;
     show("Subscribing…");
     try {
-      const res = await fetch(window.SOBAT.supabaseUrl + "/rest/v1/rpc/subscribe_newsletter", {
+      const res = await fetch(window.SOBAT.supabaseUrl + "/functions/v1/newsletter", {
         method: "POST",
         headers: { apikey: window.SOBAT.publishableKey, "Content-Type": "application/json" },
-        body: JSON.stringify({ p_email: email })
+        body: JSON.stringify({ email, token: captcha.token() })
       });
       if (!res.ok) throw new Error(String(res.status));
       form.reset();
@@ -39,6 +45,7 @@
     } catch (err) {
       show("Couldn't subscribe right now. Please try again in a minute.", "error");
     } finally {
+      captcha.reset();
       button.disabled = false;
     }
   });
