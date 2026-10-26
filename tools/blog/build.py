@@ -47,6 +47,7 @@ def head(title, desc, url, og_type, ld):
   <meta name="twitter:image" content="{SITE}/assets/og-image.png">
   <meta name="theme-color" content="#F5F4FA">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/site.css">
   <script type="application/ld+json">
