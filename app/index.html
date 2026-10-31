@@ -40,6 +40,20 @@
         flex: 1;
       }
     </style>
+    <!-- Shown the moment the page arrives, until the app is ready (app/_layout.tsx
+         removes it): a blank page while ~1 MB of code loads lost most visitors
+         from Instagram ads. Colours from lib/theme.ts (brand). Hides itself
+         after 20 s in case the app never starts, so an error isn't covered. -->
+    <style>
+      #boot { position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+        background: #5B3DF5; color: #fff; font-family: -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; transition: opacity .25s; animation: boot-out .3s 20s forwards; }
+      #boot.gone { opacity: 0; pointer-events: none; }
+      #boot b { font-size: 42px; font-weight: 800; letter-spacing: -1px; }
+      #boot i { width: 34px; height: 34px; border-radius: 50%; border: 3px solid rgba(255, 255, 255, .3); border-top-color: #fff; animation: boot-spin .8s linear infinite; }
+      #boot span { font-size: 15px; opacity: .85; }
+      @keyframes boot-spin { to { transform: rotate(360deg); } }
+      @keyframes boot-out { to { opacity: 0; visibility: hidden; } }
+    </style>
   <meta name="theme-color" content="#5B3DF5">
 <meta name="description" content="Share a cab with people going your way. Split the fare, halve the CO2.">
 <link rel="icon" href="/app/favicon.ico"/><link rel="preload" href="/app/_expo/static/css/leaflet-df687fead8c4838a4e6b8bcb2f176a0e.css" as="style">
@@ -47,6 +61,7 @@
 
   <body>
     <noscript>Sobat needs JavaScript. Turn it on, or get the app.</noscript>
+    <div id="boot" aria-hidden="true"><b>sobat</b><i></i><span>Finding rides going your way…</span></div>
     <div id="root"></div>
     <script>
       // Opens instantly next time, even on a weak connection (sw.js).
@@ -56,6 +71,6 @@
         });
       }
     </script>
-  <script src="/app/_expo/static/js/web/__expo-metro-runtime-8c088df87a31e4e6accd81c554ec290d.js" defer></script><script src="/app/_expo/static/js/web/__common-1d8f9eb6162e18cd2b07d22d868f517d.js" defer></script><script src="/app/_expo/static/js/web/entry-373dc0f972a6d0f773d996d043d2b45e.js" defer></script>
+  <script src="/app/_expo/static/js/web/__expo-metro-runtime-8c088df87a31e4e6accd81c554ec290d.js" defer></script><script src="/app/_expo/static/js/web/__common-1d8f9eb6162e18cd2b07d22d868f517d.js" defer></script><script src="/app/_expo/static/js/web/entry-5c1580afb4575ca7be907a34852bd934.js" defer></script>
 </body>
 </html>
