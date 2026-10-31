@@ -81,7 +81,8 @@ h3 { font-size: 18px; letter-spacing: -0.015em; font-weight: 700; }
 .tabular { font-variant-numeric: tabular-nums; }
 
 /* ── Header ── */
-.site-header { position: relative; z-index: 5; background: rgba(255, 255, 255, 0.82); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--line); }
+/* Pinned to the top on every page, so "Open the app" is always in reach */
+.site-header { position: sticky; top: 0; z-index: 30; background: rgba(255, 255, 255, 0.82); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--line); }
 .site-header .container { display: flex; align-items: center; gap: 18px; padding-block: 14px; }
 .site-nav { display: flex; flex-wrap: wrap; gap: 4px 22px; font-size: 15px; font-weight: 600; margin-left: auto; }
 .site-nav a { color: var(--ink-soft); text-decoration: none; }
@@ -91,6 +92,16 @@ h3 { font-size: 18px; letter-spacing: -0.015em; font-weight: 700; }
 .site-header.on-dark .site-nav a { color: rgba(255, 255, 255, 0.78); }
 .site-header.on-dark .site-nav a:hover { color: #FFFFFF; }
 .site-header.on-dark .brand-word { color: #FFFFFF; }
+/* Home, wider screens: the header over the hero comes back pinned once the
+   hero's button has scrolled away (index.html's script adds .stuck). Phones
+   get the sticky bottom "Open Sobat" instead. */
+@media (min-width: 721px) {
+  .site-header.on-dark.stuck { position: fixed; background: rgba(255, 255, 255, 0.82); border-bottom: 1px solid var(--line); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); }
+  .site-header.on-dark.stuck .brand-word { color: var(--ink); }
+  .site-header.on-dark.stuck .site-nav a { color: var(--ink-soft); }
+  .site-header.on-dark.stuck .site-nav a:hover { color: var(--brand); }
+  .site-header.on-dark.stuck .button.light { background: var(--grad-brand); color: #FFFFFF; box-shadow: 0 10px 22px -10px rgba(91, 61, 245, 0.75); }
+}
 
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
 .brand-tile { width: 36px; height: 36px; border-radius: 11px; background: var(--grad-brand); display: grid; place-items: center; flex: none; box-shadow: 0 8px 18px -8px rgba(91, 61, 245, 0.7); }
@@ -359,10 +370,11 @@ h3 { font-size: 18px; letter-spacing: -0.015em; font-weight: 700; }
 /* ── Motion. Skipped when the device asks for reduced motion; every
    element's resting state is fully visible, so nothing depends on an
    animation finishing. ── */
-[id] { scroll-margin-top: 24px; }
+[id] { scroll-margin-top: 88px; }
 
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
+  .site-header.on-dark.stuck { animation: header-in 0.25s cubic-bezier(0.2, 0.7, 0.2, 1); }
 
   .hero .glow-a { animation: drift-a 14s ease-in-out infinite; }
   .hero .glow-b { animation: drift-b 18s ease-in-out infinite; }
@@ -421,3 +433,5 @@ h3 { font-size: 18px; letter-spacing: -0.015em; font-weight: 700; }
 @keyframes fade-solo { to { opacity: 0.35; } }
 @keyframes drift-a { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-40px, 30px); } }
 @keyframes drift-b { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(50px, -24px); } }
+
+@keyframes header-in { from { transform: translateY(-100%); } to { transform: none; } }

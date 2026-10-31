@@ -490,7 +490,8 @@
   </footer>
 
   <!-- Phones: a sticky "Open Sobat" once the hero's button has scrolled away
-       (hidden again over the closing call to action). -->
+       (hidden again over the closing call to action). Wider screens: the
+       header comes back pinned to the top instead. -->
   <a class="sticky-cta button" id="sticky-cta" href="/app/" aria-hidden="true" tabindex="-1">Open Sobat, it's free <span class="arrow" aria-hidden="true">→</span></a>
   <script>
     (function () {
@@ -505,6 +506,14 @@
         bar.tabIndex = show ? 0 : -1;
       });
       document.querySelectorAll(".hero-actions, .cta-band").forEach(function (el) { io.observe(el); });
+
+      // Wider screens: pin the header once the hero's button is above the screen
+      var header = document.querySelector(".site-header.on-dark");
+      var actions = document.querySelector(".hero-actions");
+      if (header && actions) new IntersectionObserver(function (entries) {
+        var e = entries[0];
+        header.classList.toggle("stuck", !e.isIntersecting && e.boundingClientRect.top < 0);
+      }).observe(actions);
     })();
   </script>
 
