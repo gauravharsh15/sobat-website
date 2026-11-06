@@ -14,6 +14,11 @@
     <meta name="apple-mobile-web-app-title" content="Sobat" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <script>
+      // Dark mode (You → Settings, lib/theme-pref.web.ts): paint the page dark
+      // before the app loads, so nothing flashes white.
+      try { if (localStorage.getItem('sobat.theme') === 'dark') document.documentElement.style.background = '#0E0B16'; } catch (e) {}
+    </script>
+    <script>
       // A deep link (getsobat.in/app/ride/…) reaches GitHub Pages' 404 page,
       // which sends it here as /app/?p=<path>. Put the path back before the
       // app starts, so the router opens the right screen.
@@ -46,7 +51,7 @@
          after 20 s in case the app never starts, so an error isn't covered. -->
     <style>
       #boot { position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
-        background: #5B3DF5; color: #fff; font-family: -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; transition: opacity .25s; animation: boot-out .3s 20s forwards; }
+        background: #1C1233; color: #fff; font-family: -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; transition: opacity .25s; animation: boot-out .3s 20s forwards; }
       #boot.gone { opacity: 0; pointer-events: none; }
       #boot b { font-size: 42px; font-weight: 800; letter-spacing: -1px; }
       #boot i { width: 34px; height: 34px; border-radius: 50%; border: 3px solid rgba(255, 255, 255, .3); border-top-color: #fff; animation: boot-spin .8s linear infinite; }
@@ -71,6 +76,6 @@
         });
       }
     </script>
-  <script src="/app/_expo/static/js/web/__expo-metro-runtime-8c088df87a31e4e6accd81c554ec290d.js" defer></script><script src="/app/_expo/static/js/web/__common-6646c2826573f5675ccac3586b71985a.js" defer></script><script src="/app/_expo/static/js/web/entry-22d87320de14892b9b93c380d924ec08.js" defer></script>
+  <script src="/app/_expo/static/js/web/__expo-metro-runtime-8c088df87a31e4e6accd81c554ec290d.js" defer></script><script src="/app/_expo/static/js/web/__common-8f3f24c610aa365b97223e391c10d86e.js" defer></script><script src="/app/_expo/static/js/web/entry-234860683529d168e332d2f2cd600569.js" defer></script>
 </body>
 </html>
