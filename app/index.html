@@ -44,6 +44,18 @@
         height: 100%;
         flex: 1;
       }
+      /* Installed on an iPhone's Home Screen (viewport-fit=cover with the
+         black-translucent status bar), iOS 26 takes the top safe area off
+         height: 100%, leaving an empty band under the tab bar and the
+         buttons docked at the bottom. There the large viewport is the
+         whole screen. */
+      @media (display-mode: standalone) {
+        html,
+        body,
+        #root {
+          height: 100lvh;
+        }
+      }
     </style>
     <!-- Shown the moment the page arrives, until the app is ready (app/_layout.tsx
          removes it): a blank page while ~1 MB of code loads lost most visitors
