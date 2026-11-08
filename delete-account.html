@@ -54,16 +54,25 @@
       <div id="step-signin">
         <button class="button" type="button" id="google">Continue with Google</button>
         <p class="status" id="signin-status" role="status" aria-live="polite"></p>
-        <!-- Sobat signs riders in with Google for now (no SMS provider yet);
-             phone codes stay here for accounts made with a phone number. -->
+        <!-- The app's three ways in: Google, a code on WhatsApp, a code by email. -->
         <details class="alt-signin">
-          <summary>Signed up with a phone number instead?</summary>
+          <summary>Sign in with a code on WhatsApp</summary>
           <form id="phone-form" class="row" novalidate>
-            <label class="field" for="phone">Phone number
+            <label class="field" for="phone">Mobile number
               <input class="input" id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="98765 43210">
             </label>
-            <button class="button secondary" type="submit" id="send-code">Send code</button>
+            <button class="button secondary" type="submit" id="send-code">Send code on WhatsApp</button>
             <div id="phone-captcha"></div>
+          </form>
+        </details>
+        <details class="alt-signin">
+          <summary>Sign in with a code by email</summary>
+          <form id="email-form" class="row" novalidate>
+            <label class="field" for="email">Email
+              <input class="input" id="email" type="email" inputmode="email" autocomplete="email" placeholder="you@gmail.com">
+            </label>
+            <button class="button secondary" type="submit" id="send-email-code">Email me a code</button>
+            <div id="email-captcha"></div>
           </form>
         </details>
       </div>
@@ -76,7 +85,7 @@
           <button class="button" type="submit" id="verify-code">Verify</button>
         </form>
         <p class="status" id="code-status" role="status" aria-live="polite"></p>
-        <button class="button secondary" type="button" id="change-number">Use a different number</button>
+        <button class="button secondary" type="button" id="change-number">Sign in another way</button>
       </div>
 
       <div id="step-confirm" hidden>
@@ -100,7 +109,7 @@
 
     <section class="panel" aria-labelledby="help-h">
       <h2 id="help-h">Can't sign in?</h2>
-      <p>If you no longer have the phone number or Google account you signed up with, email <strong>hello@getsobat.in</strong> with the details of your account. We'll confirm the account is yours before deleting anything.</p>
+      <p>If you no longer have the phone number, email or Google account you signed up with, email <strong>support@getsobat.in</strong> with the details of your account. We'll confirm the account is yours before deleting anything.</p>
     </section>
   </main>
 
@@ -113,7 +122,7 @@
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
         <a href="delete-account.html">Delete account</a>
-        <span>hello@getsobat.in</span>
+        <span>support@getsobat.in</span>
       </nav>
     </div>
   </footer>

@@ -1,5 +1,5 @@
 // Web account deletion. The visitor signs in with the same method as the app
-// (phone OTP or Google), then we call the same delete_own_account() database
+// (Google, a code on WhatsApp, or a code by email), then we call the same delete_own_account() database
 // function the app's Profile screen uses. That function only ever deletes the
 // signed-in account (auth.uid()), so nobody can delete someone else's.
 // Talks to Supabase's REST endpoints with fetch; no client library needed.
@@ -11,7 +11,8 @@
 
   let accessToken = null;
   let userId = null;
-  let pendingPhone = null;
+  // What the code was sent to: { phone } or { email }.
+  let pending = null;
 
   function showStep(step) {
     ["step-signin", "step-code", "step-confirm", "step-done"].forEach((id) => { $(id).hidden = id !== step; });
@@ -117,10 +118,10 @@
       // Anything else, including a number with no account, gets the same message
       // as a success, so this page can't reveal whether a number has an account.
     }
-    pendingPhone = phone;
+    pending = { phone };
     $("code-phone").textContent = maskPhone(phone);
     $("code").value = "";
-    setStatus("code-status", "If this number has a Sobat account, a 6-digit code is on its way.");
+    setStatus("code-status", "If this number has a Sobat account, a 6-digit code is on its way on WhatsApp.");
     $("send-code").disabled = false;
     setStatus("signin-status", "");
     showStep("step-code");
@@ -131,13 +132,14 @@
     e.preventDefault();
     const token = $("code").value.replace(/\D/g, "");
     if (token.length !== 6) {
-      setStatus("code-status", "Enter the 6-digit code from the SMS.", "error");
+      setStatus("code-status", pending && pending.email ? "Enter the 6-digit code from the email." : "Enter the 6-digit code from WhatsApp.", "error");
       return;
     }
     $("verify-code").disabled = true;
     setStatus("code-status", "Checking…");
     try {
-      const session = await call("/auth/v1/verify", { body: { type: "sms", phone: pendingPhone, token } });
+      const body = pending && pending.email ? { type: "email", email: pending.email, token } : { type: "sms", phone: pending && pending.phone, token };
+      const session = await call("/auth/v1/verify", { body });
       accessToken = session.access_token;
       await showSignedIn();
     } catch (err) {
@@ -148,10 +150,52 @@
   });
 
   $("change-number").addEventListener("click", () => {
-    pendingPhone = null;
+    pending = null;
     setStatus("code-status", "");
     showStep("step-signin");
-    $("phone").focus();
+  });
+
+  // Email: a code like the app's (sent by Supabase Auth's Send Email hook).
+  // create_user is false, and an address with no account gets the same reply
+  // as one with, so this page can't reveal who has an account.
+  const emailCaptcha = window.sobatCaptcha($("email-captcha"), "email_code");
+  $("email-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = String($("email").value).trim().toLowerCase();
+    if (!/^[^@\s]+@[^@\s]+\.[a-z0-9-]{2,}$/.test(email)) {
+      setStatus("signin-status", "Enter the email on your Sobat account.", "error");
+      $("email").focus();
+      return;
+    }
+    if (window.SOBAT.turnstileSiteKey && !emailCaptcha.token()) {
+      setStatus("signin-status", "One moment: checking you're not a bot. Try again in a few seconds.", "error");
+      return;
+    }
+    $("send-email-code").disabled = true;
+    setStatus("signin-status", "Sending code…");
+    const captchaToken = emailCaptcha.token();
+    emailCaptcha.reset();
+    try {
+      await call("/auth/v1/otp", { body: { email, create_user: false, gotrue_meta_security: { captcha_token: captchaToken } } });
+    } catch (err) {
+      let problem = null;
+      if (err.status === 429) problem = "Too many attempts. Wait a minute, then try again.";
+      else if (/captcha/i.test(err.message)) problem = "The bot check didn't go through. Wait a moment, then try again.";
+      else if (err.status >= 500) problem = "Email codes aren't available right now. Try another way, delete in the app, or email us.";
+      if (problem) {
+        setStatus("signin-status", problem, "error");
+        $("send-email-code").disabled = false;
+        return;
+      }
+    }
+    pending = { email };
+    $("code-phone").textContent = maskEmail(email);
+    $("code").value = "";
+    setStatus("code-status", "If this email has a Sobat account, a 6-digit code is on its way. Check Spam if it isn't there in a minute.");
+    $("send-email-code").disabled = false;
+    setStatus("signin-status", "");
+    showStep("step-code");
+    $("code").focus();
   });
 
   // Google: Supabase sends the visitor back here with the session in the URL fragment.
@@ -166,7 +210,7 @@
 
   $("cancel-btn").addEventListener("click", () => {
     accessToken = null;
-    pendingPhone = null;
+    pending = null;
     showStep("step-signin");
     setStatus("signin-status", "Cancelled. Nothing was deleted.", "ok");
   });
@@ -185,7 +229,7 @@
       await call("/rest/v1/rpc/delete_own_account", { body: {}, token: accessToken });
       accessToken = null;
       userId = null;
-      pendingPhone = null;
+      pending = null;
       showStep("step-done");
     } catch (err) {
       setStatus("confirm-status", "We couldn't delete the account. Please try again, or email us.", "error");
